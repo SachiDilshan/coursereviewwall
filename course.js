@@ -140,34 +140,39 @@ function loadReviews() {
     const fiveYearsAgo = new Date();
     fiveYearsAgo.setFullYear(now.getFullYear() - 5);
 
+    const reviews = [];
     snapshot.forEach((child) => {
-      const review = child.val();
+      reviews.push({ key: child.key, ...child.val() });
+    });
+
+    // 🔁 Reverse the list to get latest first
+    reviews.reverse();
+
+    reviews.forEach((review) => {
       const reviewDate = new Date(review.timestamp);
       if (reviewDate < fiveYearsAgo) return;
 
       const li = document.createElement("li");
       li.innerHTML = `
-        <strong>Difficulty:</strong> ${review.difficulty} - ${levelText[review.difficulty] || "Unknown"} <br>
-        <strong>Delivery:</strong> ${review.delivery} <br>
-        <strong>Group Work:</strong> ${review.groupWork} <br>
-        <strong>Comment:</strong> ${review.comment || "(No comment)"} <br>
-        <small>Posted on: ${reviewDate.toDateString()}</small>
-      `;
+    <strong>Difficulty:</strong> ${review.difficulty} - ${levelText[review.difficulty] || "Unknown"} <br>
+    <strong>Delivery:</strong> ${review.delivery} <br>
+    <strong>Group Work:</strong> ${review.groupWork} <br>
+    <strong>Comment:</strong> ${review.comment || "(No comment)"} <br>
+    <small>Posted on: ${reviewDate.toDateString()}</small>
+  `;
 
       const currentUser = auth.currentUser;
-      // Show Delete for own reviews
       if (currentUser && review.uid === currentUser.uid) {
         const delBtn = document.createElement("button");
         delBtn.textContent = "Delete";
         delBtn.onclick = () => {
           if (confirm("Delete this review?")) {
-            db.ref(`reviews/${courseCode}/${child.key}`).remove();
+            db.ref(`reviews/${courseCode}/${review.key}`).remove();
           }
         };
         li.appendChild(delBtn);
       }
 
-      // Show Report for others
       if (!currentUser || (currentUser && review.uid !== currentUser.uid)) {
         const reportBtn = document.createElement("button");
         reportBtn.textContent = "Report";
@@ -196,6 +201,7 @@ function loadReviews() {
         };
         li.appendChild(reportBtn);
       }
+
       reviewsList.appendChild(li);
     });
   });
