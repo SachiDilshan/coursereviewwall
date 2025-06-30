@@ -86,11 +86,6 @@ If you'd like to run it locally:
 
 ---
 
-## 📷 Screenshots (Optional)
-> You can include screenshots from the site (homepage, submit form, and review list)
-
----
-
 ## 📚 License
 
 This project was developed as part of the EEI5280 Creative Design module at [OUSL](https://www.ou.ac.lk/). It is for educational use only.
