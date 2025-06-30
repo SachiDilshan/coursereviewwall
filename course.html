@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Course Details</title>
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- Firebase -->
+  <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-database-compat.js"></script>
+
+  <!-- Page Logic -->
+  <script src="course.js" defer></script>
+</head>
+
+<body>
+  <!-- Static Header -->
+  <header class="site-header">
+    <div class="header-left">
+      <a href="index.html" class="logo">Course Review Wall</a>
+    </div>
+    <div class="header-right">
+      <button id="loginBtn">Login with Google</button>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <h1 id="courseTitle">Loading...</h1>
+      <p class="description-note">
+        Official course description is not included to avoid outdated or unofficial information. Please refer to the
+        latest OUSL guidebook.
+      </p>
+
+      <section id="reviewFormSection">
+        <h2>Leave a Review</h2>
+        <form id="reviewForm">
+          <label for="difficulty">Difficulty Level:</label>
+          <div id="difficultyBar" class="difficulty-bar">
+            <div class="level" data-value="1" title="Very Easy">1</div>
+            <div class="level" data-value="2" title="Easy">2</div>
+            <div class="level" data-value="3" title="Average">3</div>
+            <div class="level" data-value="4" title="Difficult">4</div>
+            <div class="level" data-value="5" title="Very Difficult">5</div>
+          </div>
+          <input type="hidden" id="difficulty" value="">
+          <p id="difficultyLabel">Difficulty: Not selected</p>
+
+          <label for="delivery">Delivery Mode:</label>
+          <select id="delivery">
+            <option value="online">Online</option>
+            <option value="onsite">On-site</option>
+            <option value="hybrid">Hybrid</option>
+          </select>
+
+          <label for="groupWork">Group Work Required:</label>
+          <select id="groupWork">
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+          </select>
+
+          <label for="comment">Comment (optional):</label>
+          <textarea id="comment" rows="4" placeholder="Your experience..."></textarea>
+
+          <button type="submit">Submit Review</button>
+        </form>
+      </section>
+
+      <section id="reviewsSection">
+        <h2>Student Reviews</h2>
+        <ul id="reviewsList">
+          <!-- Reviews will be populated here -->
+        </ul>
+      </section>
+    </div>
+  </main>
+
+  <!-- Static Footer -->
+  <footer class="site-footer">
+    <p>&copy; 2025 Course Review Wall | Anonymous Peer Feedback</p>
+  </footer>
+</body>
+
+</html>

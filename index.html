@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Course Review Wall</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth-compat.js"></script>
+  <script src="main.js" defer></script>
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="header-left">
+      <a href="index.html" class="logo">Course Review Wall</a>
+    </div>
+    <div class="header-right">
+      <button id="loginBtn">Login</button>
+    </div>
+  </header>
+
+  <main class="main-container">
+    <section id="search-section">
+      <input type="text" id="searchInput" placeholder="Search course code or name">
+      <button id="searchBtn">Search</button>
+    </section>
+
+    <section id="course-list">
+      <h2>Year 1 Courses</h2>
+      <ul>
+        <li><a href="course.html?code=EEX3467">EEX3467 – Software Engineering Concepts and Programming</a></li>
+        <li><a href="course.html?code=EEI3346">EEI3346 – Web Application Development</a></li>
+        <li><a href="course.html?code=EEI3262">EEI3262 – Introduction to Object Oriented Programming</a></li>
+        <li><a href="course.html?code=EEI3266">EEI3266 – Information Systems and Data Management</a></li>
+        <li><a href="course.html?code=EEX3373">EEX3373 – Communication and Computer Technology</a></li>
+        <li><a href="course.html?code=AGM3263">AGM3263 – Communication Skills</a></li>
+        <li><a href="course.html?code=MHZ3459">MHZ3459 – Basic Mathematics for Computing</a></li>
+        <li><a href="course.html?code=EEI4346">EEI4346 – Web Technology</a></li>
+        <li><a href="course.html?code=EEI3269">EEI3269 – Introduction to Mobile Application Development</a></li>
+        <li><a href="course.html?code=EEM3366">EEM3366 – Introduction to Business Studies</a></li>
+        <li><a href="course.html?code=EEI3372">EEI3372 – Programming in Python</a></li>
+      </ul>
+
+      <h2>Year 2 Courses</h2>
+      <ul>
+        <li><a href="course.html?code=EEI4267">EEI4267 – Requirement Engineering</a></li>
+        <li><a href="course.html?code=EEI4362">EEI4362 – Object Oriented Design</a></li>
+        <li><a href="course.html?code=EEX4465">EEX4465 – Data Structures and Algorithms</a></li>
+        <li><a href="course.html?code=MHZ4256">MHZ4256 – Mathematics for Computing</a></li>
+        <li><a href="course.html?code=EEI4361">EEI4361 – User Experience Engineering</a></li>
+        <li><a href="course.html?code=EEI4366">EEI4366 – Data Modelling and Database Systems</a></li>
+        <li><a href="course.html?code=AGM4367">AGM4367 – Economics and Marketing for Engineers</a></li>
+        <li><a href="course.html?code=EEY4189">EEY4189 – Software Design in Group</a></li>
+        <li><a href="course.html?code=MHZ4377">MHZ4377 – Applied Statistics</a></li>
+        <li><a href="course.html?code=EEI5467">EEI5467 – Software Testing and Quality Assurance</a></li>
+        <li><a href="course.html?code=EEI4369">EEI4369 – Mobile Application Development for Android</a></li>
+        <li><a href="course.html?code=EEX4373">EEX4373 – Data Science</a></li>
+        <li><a href="course.html?code=LLJ3265">LLJ3265 – Introduction to Laws of Sri Lanka</a></li>
+        <li><a href="course.html?code=MHJ4271">MHJ4271 – History of Technology</a></li>
+      </ul>
+
+      <h2>Year 3 Courses</h2>
+      <ul>
+        <li><a href="course.html?code=EEI5270">EEI5270 – Information Security</a></li>
+        <li><a href="course.html?code=MHZ5375">MHZ5375 – Discrete Mathematics</a></li>
+        <li><a href="course.html?code=EEX5563">EEX5563 – Computer Architecture and Operating Systems</a></li>
+        <li><a href="course.html?code=EEW5811">EEW5811 – Industrial Training – Software</a></li>
+        <li><a href="course.html?code=CVM5402">CVM5402 – Accounting for Engineers</a></li>
+        <li><a href="course.html?code=EEX5362">EEX5362 – Performance Modelling</a></li>
+        <li><a href="course.html?code=MHJ5372">MHJ5372 – Technology, Society and Environment</a></li>
+        <li><a href="course.html?code=EEY6189">EEY6189 – Research Methodology and Project Identification</a></li>
+        <li><a href="course.html?code=EEX5376">EEX5376 – Embedded Systems and Internet of Things</a></li>
+        <li><a href="course.html?code=EEX5464">EEX5464 – Data Communication and Networking</a></li>
+        <li><a href="course.html?code=EEI5280">EEI5280 – Creative Design</a></li>
+        <li><a href="course.html?code=EEI5466">EEI5466 – Advanced Database Systems</a></li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; 2025 Course Review Wall | OUSL (BSE) Student Project</p>
+  </footer>
+</body>
+
+</html>
